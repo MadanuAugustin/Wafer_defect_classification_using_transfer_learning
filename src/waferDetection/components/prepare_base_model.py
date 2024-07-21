@@ -23,7 +23,7 @@ class PrepareBaseModel:
 
         base_model = VGG16(weights=self.config.params_weight, include_top=self.config.params_include_top, input_shape=self.config.params_image_size)     
 
-        base_model.save(self.config.base_model_path)
+        base_model.save(self.config.base_model_path, include_optimizer = False)
 
         logger.info(f'-------------successfully created base_model and saved-----------------')
 
