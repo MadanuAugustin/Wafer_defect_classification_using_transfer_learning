@@ -31,12 +31,12 @@ def home():
     return render_template('index.html')
 
 
-@app.route("/train", methods = ['GET', 'POST'])
-@cross_origin()
-def trainRoute():
-    os.system('python main.py')
-    # os.system('dvc repro')
-    return 'Training done Successfully...!'
+# @app.route("/train", methods = ['GET', 'POST'])
+# @cross_origin()
+# def trainRoute():
+#     os.system('python main.py')
+#     # os.system('dvc repro')
+#     return 'Training done Successfully...!'
 
 
 @app.route('/predict', methods = ['POST'])
@@ -50,4 +50,4 @@ def predictRoute():
 
 if __name__ == "__main__" : 
     clApp = ClientApp()
-    app.run(host='0.0.0.0', port = 8080) # for AWS deployment
+    app.run(host='0.0.0.0', port=8080, debug=True) # for AWS deployment

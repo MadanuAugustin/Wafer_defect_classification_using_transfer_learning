@@ -5,41 +5,30 @@ import os
 
 
 
-
 class PredictionPipeline:
     def __init__(self, filename):
-
         self.filename = filename
 
-
     def predict(self):
-
-        ## load the model
-
+        # Load the model
         model = load_model(os.path.join('model', 'base_model_updated.keras'))
 
+        # Load and preprocess the image
         imagename = self.filename
-
-        test_image = image.load_img(imagename, target_size = (224, 224))
-
+        test_image = image.load_img(imagename, target_size=(224, 224))
         test_image = image.img_to_array(test_image)
+        test_image = np.expand_dims(test_image, axis=0)
 
-        test_image = np.expand_dims(test_image, axis = 0)
+        # Make a prediction
+        predictions = model.predict(test_image)
+        result = np.argmax(predictions, axis=1)
 
-        # the last layer of the vgg16 is actually a softmax layer but we are taking the argmax which is the most probability score
+        # Define class labels (replace these with your actual class names)
+        class_labels = ['Center', 'Donut', 'EdgeLoc', 'EdgeRing', 'Loc', 'NearFull', 'none', 'Random', 'Scratch']
 
-        result = np.argmax(model.predict(test_image), axis = 1)
+        # Get the predicted class label
+        predicted_class = class_labels[result[0]]
 
-        print(result)
+        return [{"image": predicted_class}]
 
-        if result[0] == 1:
 
-            prediction = 'Tumor'
-
-            return [{"image" : prediction}]
-        
-        else:
-
-            prediction = 'Normal'
-
-            return [{"image" : prediction}]

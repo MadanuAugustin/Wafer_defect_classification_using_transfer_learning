@@ -22,15 +22,15 @@ except Exception as e:
 
 
 
-# STAGE_NAME = 'Prepare Base Model Stage'
+STAGE_NAME = 'Prepare Base Model Stage'
 
-# try:
-#     logger.info(f'-----------------{STAGE_NAME} started------------------------')
-#     preparebasemodel = PrepareBaseModelTrainingPipeline()
-#     preparebasemodel.main()
-#     logger.info(f'-----------------{STAGE_NAME} completed successfully-----------------')
-# except Exception as e:
-#     raise CustomException(e, sys)
+try:
+    logger.info(f'-----------------{STAGE_NAME} started------------------------')
+    preparebasemodel = PrepareBaseModelTrainingPipeline()
+    preparebasemodel.main()
+    logger.info(f'-----------------{STAGE_NAME} completed successfully-----------------')
+except Exception as e:
+    raise CustomException(e, sys)
 
 
 
