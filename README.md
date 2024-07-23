@@ -19,6 +19,11 @@ The performance of the models is evaluated using metrics such as accuracy. Techn
 
 ### PROJECT STRUCTURE:
 
+![image](https://github.com/user-attachments/assets/2601a3a1-10db-4958-bb06-b06f61f0c899)
+
+
+
+
 ---
 
 ### FINAL OUTPUT:
