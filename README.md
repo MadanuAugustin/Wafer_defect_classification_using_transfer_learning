@@ -30,3 +30,8 @@ The performance of the models is evaluated using metrics such as accuracy. Techn
 
 https://github.com/user-attachments/assets/8efd1954-a0dd-495f-a7bf-e75ea98e0ff1
 
+---
+
+### MLFlow Experiments:
+https://dagshub.com/augustin7766/Wafer_defect_classification_using_transfer_learning
+
